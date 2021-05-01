@@ -1,4 +1,16 @@
-<%= render 'layouts/errors', obj = @user %>
+
+
+<% if @book.errors.any? %>
+  <h2 class="text-danger">
+    <%= @book.errors.count %>error prohibited this obj from being saved:
+  </h2><br>
+  <ul class="text-danger">
+    <% @book.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+<% end %>
+  </ul>
+
 <div class='container px-5 px-sm-0'>
   <div class='row'>
     <div class='col-md-3'>
